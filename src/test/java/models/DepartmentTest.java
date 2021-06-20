@@ -1,66 +1,52 @@
 package models;
 
-import junit.framework.TestCase;
+
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
-public class DepartmentTest extends TestCase {
-
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-    public void tearDown() throws Exception {
-    }
-
-    public void testTestEquals() {
-    }
-
-    public void testTestHashCode() {
-    }
+import static org.junit.Assert.*;
+public class DepartmentTest {
     @Test
     public void departmentInstanciatesCorrectly() {
         Department department = new Department("Accounting", "Deals with Accounting", 50);
         assertEquals (true, department instanceof Department);
     }
 
-    public void testSetId() {
+    @Test
+    public void getsDepartmentName() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        assertEquals ("Accounting", department.getDepartmentName());
+    }
+    @Test
+    public void getsDepartmentDescription() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        assertEquals ("Deals with Accounting", department.getdepartmentDescription());
+    }
+    @Test
+    public void getsDepartmentEmployees() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        assertEquals (50, department.getNumberOfEmployees());
+    }
+    @Test
+    public void setsDepartmentName() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        department.setDepartmentName("Accounting");
+        assertEquals("Accounting", department.getDepartmentName());
+    }
+    @Test
+    public void setsDepartmentDescription() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        department.setDepartmentDescription("Deals with Accounting");
+        assertEquals("Deals with Accounting", department.getdepartmentDescription());
+    }
+    @Test
+    public void setsDepartmentEmployees() {
+        Department department = new Department("Accounting", "Deals with Accounting", 50);
+        department.setNumberOfEmployees(50);
+        assertEquals(50, department.getNumberOfEmployees());
+    }
+    @Test
+    public void setId() {
         Department department = new Department("Accounting", "Deals with Accounting", 50);
         department.setId(5);
         assertEquals(5, department.getId());
-    }
-
-    public void testTestGetName() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        assertEquals ("Accounting", department.getName());
-    }
-
-    public void testTestSetName() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        department.setName("Accounting");
-        assertEquals("Accounting", department.getName());
-    }
-
-    public void testGetDescription() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        assertEquals ("Deals with Accounting", department.getDescription());
-    }
-
-    public void testSetDescription() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        department.setDescription("Deals with Accounting");
-        assertEquals("Deals with Accounting", department.getDescription());
-    }
-
-    public void testGetNumberofemployees() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        assertEquals (50, department.getNumberofemployees());
-    }
-
-    public void testSetNumberofemployees() {
-        Department department = new Department("Accounting", "Deals with Accounting", 50);
-        department.setNumberofemployees(50);
-        assertEquals(50, department.getNumberofemployees());
     }
 }
