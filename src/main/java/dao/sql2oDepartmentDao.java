@@ -42,4 +42,20 @@ public class sql2oDepartmentDao {
                     .executeAndFetch(News.class);
         }
     }
+    @Override
+    public void add(Department department) {
+        String sql = "INSERT INTO departments(name,description,numberofemployees) VALUES(:name,:description,:numberofemployees)";
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql, true)
+                    .addParameter("name",department.getDepartmentName())
+                    .addParameter("description",department.getdepartmentDescription())
+                    .addParameter("numberofemployees",department.getNumberOfEmployees())
+                    .executeUpdate()
+                    .getKey();
+            department.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
 }
