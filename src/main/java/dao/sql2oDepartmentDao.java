@@ -57,5 +57,13 @@ public class sql2oDepartmentDao {
             System.out.println(ex);
         }
     }
+    @Override
+    public Department findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM departments WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Department.class);
+        }
+    }
 
 }
