@@ -22,5 +22,15 @@ public class sql2oDepartmentDao {
             return con.createQuery("SELECT * FROM departments")
                     .executeAndFetch(Department.class);
         }
+
+    }
+    @Override
+    public List<User> getUsers(int departmentid) {
+        String sql = "SELECT * FROM users where departmentid=:departmentid";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("departmentid", departmentid)
+                    .executeAndFetch(User.class);
+        }
     }
 }
