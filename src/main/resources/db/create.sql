@@ -14,3 +14,9 @@ CREATE TABLE IF NOT EXISTS departments(
   description VARCHAR,
   departmentid int
  );
+ CREATE TABLE IF NOT EXISTS userName (
+  id serial PRIMARY KEY ,
+  name VARCHAR,
+  department-id int,
+  role VARCHAR
+ );
