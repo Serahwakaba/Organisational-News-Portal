@@ -5,7 +5,12 @@ public class Department {
     private String name;
     private String description;
 
-
+    public Department(int id, String name, String description, int numberofemployees) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.numberofemployees = numberofemployees;
+    }
 
     private int numberofemployees;
 
