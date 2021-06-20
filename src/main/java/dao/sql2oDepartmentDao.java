@@ -33,4 +33,13 @@ public class sql2oDepartmentDao {
                     .executeAndFetch(User.class);
         }
     }
+    @Override
+    public List<News> getNews(int departmentid) {
+        String sql = "SELECT * FROM news where departmentid=:departmentid";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("departmentid", departmentid)
+                    .executeAndFetch(News.class);
+        }
+    }
 }
