@@ -1,6 +1,6 @@
 package dao;
 
-import models.News;
+import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -19,6 +19,7 @@ public class sql2oNewsDao implements NewsDao {
                     .executeAndFetch(News.class);
         }
     }
+
     @Override
     public List<News> getAllNewsByDepartment(int departmentId) {
         try (Connection con = sql2o.open()) {
@@ -27,6 +28,8 @@ public class sql2oNewsDao implements NewsDao {
                     .executeAndFetch(News.class);
         }
     }
+
+
     @Override
     public void add(News news) {
         String sql = "INSERT INTO news (content, description, departmentid) VALUES (:content,:description, :departmentid)";
@@ -59,6 +62,7 @@ public class sql2oNewsDao implements NewsDao {
             System.out.println(ex);
         }
     }
+
     @Override
     public void clearAll() {
         String sql = "DELETE from news";
@@ -68,5 +72,4 @@ public class sql2oNewsDao implements NewsDao {
             System.out.println(ex);
         }
     }
-
 }
