@@ -12,7 +12,7 @@ public class sql2oNewsDao implements NewsDao {
     public sql2oNewsDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
-    @Override
+
     public List<News> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM news")

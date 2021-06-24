@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface NewsDao {
     // LIST
-    List<News> getAll();
+//    List<News> getAll();
     List<News> getAllNewsByDepartment(int departmentId);
 
     //create
