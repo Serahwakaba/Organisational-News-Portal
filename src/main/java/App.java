@@ -38,7 +38,7 @@ public class App {
         NewsDao = new sql2oNewsDao(sql2o);
 
         get(("/"), (request, response) -> {
-            response.redirect("/users");
+            response.redirect("/");
             return null;
         });
 
